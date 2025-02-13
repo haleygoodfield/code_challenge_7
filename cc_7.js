@@ -41,7 +41,7 @@ console.log(calculateLoyaltyDiscount(100, 6)); // Expected output: "Discounted P
 console.log(calculateLoyaltyDiscount(200, 2)); // Expected output: "Discounted Price: $190.00"
 
 
-// FIX TASK 4 ??? BOTH LOGS ARE WRONG
+
 // Task 4: Parameters and Arguments
 // Write a function calculateShippingCost(weight, location, expedited = false) to calculate shipping fees
 const calculateShippingCost = (weight, location, expedited = false) => {
@@ -88,5 +88,21 @@ const filterHighValueTransactions = (transactions, filterFunction) => {
 };
 
 console.log(filterHighValueTransactions(transactions, amount => amount > 1000)); // Expected output: [1200, 3000, 2200]
+
+
+
+// Task 7: Closures
+// Write a function createBudgetTracker() that returns another function to add expenses and keep a running balance
+function createBudgetTracker() {
+    let balance = 0;
+    return function(expense) {
+        balance -= expense;
+        console.log(`Current Balance: -$${Math.abs(balance)}`); // Log using template literals
+    };
+}
+let budget = createBudgetTracker();
+budget(300); // Expected output: "Current Balance: -$300"
+budget(200); // Expected output: "Current Balance: -$500"
+
 
 
