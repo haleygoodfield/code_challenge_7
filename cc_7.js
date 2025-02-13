@@ -34,11 +34,32 @@ const calculateLoyaltyDiscount = (amount, years) => {
         discountRate = 0.05; // 5% discount
     }
     let discountPrice = amount * (1 - discountRate);
-    return `Discounted Price: $${discountPrice.toFixed(2)}`;
+    return `Discounted Price: $${discountPrice.toFixed(2)}`; // Log using template literals
 };
 
 console.log(calculateLoyaltyDiscount(100, 6)); // Expected output: "Discounted Price: $85.00"
 console.log(calculateLoyaltyDiscount(200, 2)); // Expected output: "Discounted Price: $190.00"
 
 
+// FIX TASK 4 ??? BOTH LOGS ARE WRONG
+// Task 4: Parameters and Arguments
+// Write a function calculateShippingCost(weight, location, expedited = false) to calculate shipping fees
+const calculateShippingCost = (weight, location, expedited = false) => {
+    let baseCost;
+    let poundCost;
+    if (location === "USA") {
+        baseCost = 5; // $5
+        poundCost = 0.05; // $0.5 per lb
+    } else if (location === "Canada") {
+        baseCost = 10; // $10
+        poundCost = 0.07; // $0.7 per lb
+    }
+    let totalCost = baseCost + (poundCost * weight);
+    if (expedited) {
+        totalCost += 10;
+    }
+    return `Shipping Cost: $${totalCost.toFixed(2)}`;
+};
+console.log(calculateShippingCost(10, "USA", true)); // Expected output: "Shipping Cost: $20.00"
+console.log(calculateShippingCost(5, "Canada", false)); // Expected output: "Shipping Cost: $13.50" 
 
