@@ -49,11 +49,12 @@ const calculateShippingCost = (weight, location, expedited = false) => {
     let poundCost;
     if (location === "USA") {
         baseCost = 5; // $5
-        poundCost = 0.05; // $0.5 per lb
+        poundCost = 0.5; // $0.5 per lb
     } else if (location === "Canada") {
         baseCost = 10; // $10
-        poundCost = 0.07; // $0.7 per lb
+        poundCost = 0.7; // $0.7 per lb
     }
+
     let totalCost = baseCost + (poundCost * weight);
     if (expedited) {
         totalCost += 10;
