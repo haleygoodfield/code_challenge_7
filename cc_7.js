@@ -40,3 +40,5 @@ const calculateLoyaltyDiscount = (amount, years) => {
 console.log(calculateLoyaltyDiscount(100, 6)); // Expected output: "Discounted Price: $85.00"
 console.log(calculateLoyaltyDiscount(200, 2)); // Expected output: "Discounted Price: $190.00"
 
+
+
