@@ -40,26 +40,16 @@ calculateLoyaltyDiscount(200, 2); // Expected output: "Discounted Price: $190.00
 
 // Task 4: Parameters and Arguments
 // Write a function calculateShippingCost(weight, location, expedited = false) to calculate shipping fees
-const calculateShippingCost = (weight, location, expedited = false) => {
-    let baseCost;
-    let poundCost;
-    if (location === "USA") {
-        baseCost = 5; // $5
-        poundCost = 0.5; // $0.5 per lb
-    } else if (location === "Canada") {
-        baseCost = 10; // $10
-        poundCost = 0.7; // $0.7 per lb
-    }
-
-    let totalCost = baseCost + (poundCost * weight);
-    if (expedited) {
-        totalCost += 10;
-    }
-    return `Shipping Cost: $${totalCost.toFixed(2)}`; // Log using template literals
+function calculateShippingCost(weight, location, expedited = false) {
+    let locationRate = { "USA": { base: 5, pound: 0.5 }, "Canada": { base: 10, pound: 0.7 } };
+    let totalCost = locationRate[location].base + (locationRate[location].pound * weight);
+    if (expedited) totalCost += 10;
+    
+    console.log(`Shipping Cost: $${totalCost.toFixed(2)}`);
 };
-
-console.log(calculateShippingCost(10, "USA", true)); // Expected output: "Shipping Cost: $20.00"
-console.log(calculateShippingCost(5, "Canada", false)); // Expected output: "Shipping Cost: $13.50" 
+// Test Cases
+calculateShippingCost(10, "USA", true); // Expected output: "Shipping Cost: $20.00"
+calculateShippingCost(5, "Canada", false); // Expected output: "Shipping Cost: $13.50" 
 
 
 
