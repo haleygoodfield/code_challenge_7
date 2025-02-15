@@ -83,13 +83,13 @@ function createBudgetTracker() {
     let balance = 0;
     return function(expense) {
         balance -= expense;
-        console.log(`Current Balance: -$${Math.abs(balance)}`); // Log using template literals
+        return `Current Balance: -$${Math.abs(balance)}`; // Log using template literals
     };
-}
-
+};
+// Test Cases
 let budget = createBudgetTracker();
-budget(300); // Expected output: "Current Balance: -$300"
-budget(200); // Expected output: "Current Balance: -$500"
+console.log(budget(300)); // Expected output: "Current Balance: -$300"
+console.log(budget(200)); // Expected output: "Current Balance: -$500"
 
 
 
