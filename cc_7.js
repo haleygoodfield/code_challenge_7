@@ -43,9 +43,9 @@ calculateLoyaltyDiscount(200, 2); // Expected output: "Discounted Price: $190.00
 function calculateShippingCost(weight, location, expedited = false) {
     let locationRate = { "USA": { base: 5, pound: 0.5 }, "Canada": { base: 10, pound: 0.7 } };
     let totalCost = locationRate[location].base + (locationRate[location].pound * weight);
-    if (expedited) totalCost += 10;
-    
-    console.log(`Shipping Cost: $${totalCost.toFixed(2)}`);
+    if (expedited) totalCost += 10; 
+
+    console.log(`Shipping Cost: $${totalCost.toFixed(2)}`); // Log using template literals
 };
 // Test Cases
 calculateShippingCost(10, "USA", true); // Expected output: "Shipping Cost: $20.00"
@@ -59,22 +59,22 @@ function calculateLoanInterest(principal, rate, years) {
     let interest = principal * rate * years; // Formula
     return `Total Interest: $${interest.toFixed(2)}`; // Log using template literals
 };
+// Test Cases
 console.log(calculateLoanInterest(1000, 0.05, 3)); // Expected output: "Total Interest: $150.00"
 console.log(calculateLoanInterest(5000, 0.07, 5)); // Expected output: "Total Interest: $1750.00"
 
 
 
 // Task 6: Higher-Order Functions
-// Declare an array transactions with at least five amounts.
-let transactions  = [500, 1200, 3000, 800, 2200];
-
 // Write a higher-order function filterHighValueTransactions(transactions, filterFunction) that filters transactions above $1000
-const filterHighValueTransactions = (transactions, filterFunction) => {
-    return transactions.filter(filterFunction);
+function filterHighValueTransactions(transactions, filterFunction) {
+    let filterHighValueTransactions = transactions.filter(filterFunction);
+    console.log(`Filtered Transcactions: $${filterHighValueTransactions}`); // Log using template literals
 };
-
-console.log(filterHighValueTransactions(transactions, amount => amount > 1000)); // Expected output: [1200, 3000, 2200]
-
+// Test Cases 
+let transactions  = [500, 1200, 3000, 800, 2200]; //  Declare an array transactions with at least five amounts.
+filterHighValueTransactions(transactions, amount => amount > 1000);
+// Expected output: [1200, 3000, 2200]
 
 
 // Task 7: Closures
