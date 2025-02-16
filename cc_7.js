@@ -41,7 +41,7 @@ calculateLoyaltyDiscount(200, 2); // Expected output: "Discounted Price: $190.00
 // Task 4: Parameters and Arguments
 // Write a function calculateShippingCost(weight, location, expedited = false) to calculate shipping fees
 function calculateShippingCost(weight, location, expedited = false) {
-    let locationRate = { "USA": { base: 5, pound: 0.5 }, "Canada": { base: 10, pound: 0.7 } };
+    let locationRate = { "USA": { base: 5, pound: 0.5 }, "Canada": { base: 10, pound: 0.7 } }; 
     let totalCost = locationRate[location].base + (locationRate[location].pound * weight);
     if (expedited) totalCost += 10; 
 
